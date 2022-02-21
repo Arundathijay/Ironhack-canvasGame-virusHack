@@ -1,0 +1,32 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: rgb(204, 174, 174);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: monospace;
+}
+
+/*.screen {
+  background-color: rgb(105, 68, 209);
+  width: 500px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  font: inherit;
+  background-color: rgb(2, 11, 88);
+  color: white;
+  border: 0;
+  padding: 1em;
+}
+*/
