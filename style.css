@@ -12,10 +12,10 @@ body {
   font-family: monospace;
 }
 
-/*.screen {
-  background-color: rgb(105, 68, 209);
-  width: 500px;
-  height: 500px;
+.screen {
+  background-color: rgb(214, 207, 233);
+  width: 600px;
+  height: 600px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -24,9 +24,12 @@ body {
 
 button {
   font: inherit;
-  background-color: rgb(2, 11, 88);
+  background-color: rgb(33, 65, 6);
   color: white;
   border: 0;
   padding: 1em;
 }
-*/
+
+#start-screen {
+  background-image: url("/Images/42672.jpg");
+}

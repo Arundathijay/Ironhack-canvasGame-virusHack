@@ -6,7 +6,7 @@ class Enemy {
     this.game = gameInstance;
     this.x = x;
     this.y = y;
-    this.width = 80;
+    this.width = 90;
     this.height = 80;
     this.speed = speed;
   }

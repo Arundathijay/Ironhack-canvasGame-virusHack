@@ -7,9 +7,17 @@ class Obstacle {
     this.height = 60;
     this.speed = speed;
   }
-
   runLogic() {
     this.x -= this.speed;
+  }
+
+  checkIntersection(item) {
+    return (
+      item.x + item.width > this.x &&
+      item.x < this.x + this.width &&
+      item.y + item.height > this.y &&
+      item.y < this.y + this.height
+    );
   }
 
   draw() {
