@@ -8,7 +8,7 @@ class Enemy {
     this.y = y;
     this.width = 90;
     this.height = 80;
-    this.speed = speed;
+    this.speed = 3;
   }
 
   runLogic() {
@@ -26,7 +26,6 @@ class Enemy {
 
   draw() {
     this.game.context.save();
-    this.game.context.fillStyle = "red";
     this.game.context.drawImage(
       enemyImg,
       this.x,

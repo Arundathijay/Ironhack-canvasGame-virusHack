@@ -2,7 +2,16 @@ let x = 0;
 const speed = 3;
 
 const backgroundImage = new Image();
-backgroundImage.src = "/Images/Flat Nature Art.png";
+backgroundImage.src =
+  "/Images/_city_of_the_amethyst_nights__by_era_7_dbqldfw.jpg";
+
+const spellSound = new Audio(
+  "/sound/466831-breviceps-laser-shots_7osXelHx.wav"
+);
+
+const healthImg = new Image();
+healthImg.src =
+  "/Images/pngtree-cute-cartoon-syringe-for-vaccination-campaign-png-image_6451436.jpg";
 
 class Game {
   constructor(canvasElement, screens) {
@@ -55,7 +64,7 @@ class Game {
   generateObstacle() {
     const obstX = Math.random() * this.canvas.height;
     const obstY = Math.random() * this.canvas.width;
-    const obstSpeed = Math.random() + 0.6;
+    const obstSpeed = 0.4;
     const obs = new Obstacle(this, obstX, obstY, obstSpeed);
     this.obstacles.push(obs);
   }
@@ -69,6 +78,7 @@ class Game {
   }
   fireSpell() {
     const spellY = this.player.y + this.player.height / 2 - 5 / 2;
+    spellSound.play();
     const spell = new Spell(
       this,
       this.player.x + this.player.width / 2,
@@ -78,8 +88,7 @@ class Game {
   }
   runLogic() {
     x -= speed;
-    if (x < -400) {
-      debugger;
+    if (x < -2000) {
     }
     if (backgroundImage.width) {
       x = x % backgroundImage.width;
@@ -99,7 +108,7 @@ class Game {
       enemy.runLogic();
       const enemyIntersctPlayer = enemy.checkIntersection(this.player);
       const enemyIsOutOfBounds = enemy.x + enemy.width < 0;
-      if (enemyIntersctPlayer || enemyIsOutOfBounds) {
+      if (enemyIntersctPlayer) {
         const indexOfEnemy = this.enemies.indexOf(enemy);
         this.enemies.splice(indexOfEnemy, 1);
         this.health -= 10;
@@ -111,7 +120,7 @@ class Game {
         obs.runLogic();
         const obsIntersctPlayer = obs.checkIntersection(this.player);
         const obsIsOutOfBounds = obs.x + obs.width < 0;
-        if (obsIntersctPlayer || obsIsOutOfBounds) {
+        if (obsIntersctPlayer) {
           const indexOfObs = this.obstacles.indexOf(obs);
           this.obstacles.splice(indexOfObs, 1);
           this.health -= 5;
@@ -140,12 +149,13 @@ class Game {
 
   drawHealth() {
     this.context.font = "36px Roboto yellow";
-    this.context.fillText(`Antibody ${this.health}`, 20, 600);
+    this.context.fillText(`Antibodies ${this.health}`, 20, 700);
   }
 
   enableControls() {
     window.addEventListener("keydown", (event) => {
       if (this.running) {
+        event.preventDefault();
         const code = event.code;
         switch (code) {
           case "ArrowUp":
@@ -184,9 +194,12 @@ class Game {
 
   draw() {
     this.context.clearRect(0, 0, canvasElement.width, canvasElement.height);
+
     this.context.drawImage(backgroundImage, x, 0);
 
     this.context.drawImage(backgroundImage, backgroundImage.width + x, 0);
+
+    this.context.drawImage(healthImg, 17, 700);
 
     for (const enemy of this.enemies) {
       enemy.draw();

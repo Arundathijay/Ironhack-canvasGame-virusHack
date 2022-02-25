@@ -1,8 +1,5 @@
 const canvasElement = document.querySelector("canvas");
 
-canvasElement.width = innerWidth;
-canvasElement.height = innerHeight;
-
 const startScreenElement = document.getElementById("start-screen");
 const playingScreenElement = document.getElementById("playing-screen");
 const endScreenElement = document.getElementById("game-over-screen");

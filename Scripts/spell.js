@@ -1,6 +1,5 @@
 const spellVaccine = new Image();
-spellVaccine.src =
-  "/Images/pngtree-cute-cartoon-syringe-for-vaccination-campaign-png-image_6451436.jpg";
+spellVaccine.src = "/Images/Mask Button.png";
 
 class Spell {
   constructor(gameInstance, x, y) {

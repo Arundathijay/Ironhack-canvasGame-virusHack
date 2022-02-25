@@ -15,7 +15,6 @@ class Player {
   draw() {
     this.game.context.save();
 
-    this.game.context.fillStyle = "blue";
     this.game.context.drawImage(
       playerImg,
       this.x,
