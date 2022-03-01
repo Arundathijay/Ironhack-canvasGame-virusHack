@@ -22,7 +22,7 @@ body {
 }
 div {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  color: rgb(53, 52, 105);
+  color: rgb(153, 45, 13);
 }
 
 button {
@@ -33,12 +33,18 @@ button {
   padding: 1em;
 }
 #start-screen {
-  background-image: url("/Images/hapunui_by_retronator_dene5dt.png");
   background-size: cover;
   background-position: center center;
 }
 #game-over-screen {
   background-image: url("/Images/42506.jpg");
+  background-size: cover;
+  background-position: center center;
+}
+#arrows {
+  align-items: center;
+}
+#level-up-screen {
   background-size: cover;
   background-position: center center;
 }

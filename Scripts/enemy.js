@@ -8,7 +8,7 @@ class Enemy {
     this.y = y;
     this.width = 90;
     this.height = 80;
-    this.speed = 3;
+    this.speed = speed;
   }
 
   runLogic() {

@@ -8,22 +8,17 @@ class Spell {
     this.y = y;
     this.width = 40;
     this.height = 20;
+    this.speed = speed;
   }
 
   runLogic() {
-    this.x += 2;
+    this.x += speed;
   }
 
   draw() {
     this.game.context.save();
-
-    this.game.context.drawImage(
-      spellVaccine,
-      this.x,
-      this.y,
-      this.width,
-      this.height
-    );
+    this.game.context.fillStyle = "black";
+    this.game.context.fillRect(this.x, this.y, this.width, this.height);
 
     this.game.context.restore();
   }

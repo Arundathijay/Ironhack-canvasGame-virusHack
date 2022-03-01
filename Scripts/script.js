@@ -3,15 +3,21 @@ const canvasElement = document.querySelector("canvas");
 const startScreenElement = document.getElementById("start-screen");
 const playingScreenElement = document.getElementById("playing-screen");
 const endScreenElement = document.getElementById("game-over-screen");
+const levelScreenElement = document.getElementById("level-up-screen");
+
 //refer to buttons
 const startButton = startScreenElement.querySelector("button");
 const tryAgainButton = endScreenElement.querySelector("button");
+const levelupButton = levelScreenElement.querySelector("button");
 
+//different screens
 const screenElements = {
   start: startScreenElement,
   playing: playingScreenElement,
-  end: endScreenElement
+  end: endScreenElement,
+  levelUP: levelScreenElement
 };
+
 const game = new Game(canvasElement, screenElements);
 
 startButton.addEventListener("click", () => {
@@ -22,20 +28,7 @@ tryAgainButton.addEventListener("click", () => {
   game.start();
 });
 
-/*window.onload = function () {
-  let imageHeight = 0;
-  let scrollSpeed = 10;
-
-  function loop() {
-    this.game.context.drawImage(backgroundImg, 0, imageHeight);
-    this.game.context.drawImage(
-      backgroundImg,
-      0,
-      imageHeight - canvasElement.height
-    );
-    imageHeight += scrollSpeed;
-    if (imageHeight == canvasElement.height) imageHeight = 0;
-    window.requestAnimationFrame(loop);
-  }
-  loop();
-};*/
+levelupButton.addEventListener("click", () => {
+  game.start();
+  game.levelUp();
+});
