@@ -1,13 +1,13 @@
 const enemyImg = new Image();
-enemyImg.src = "/Images/Obstacle.png";
+enemyImg.src = "/Images/Covid_2.png";
 
 class Enemy {
   constructor(gameInstance, x, y, speed) {
     this.game = gameInstance;
     this.x = x;
     this.y = y;
-    this.width = 90;
-    this.height = 80;
+    this.width = 40;
+    this.height = 40;
     this.speed = speed;
   }
 

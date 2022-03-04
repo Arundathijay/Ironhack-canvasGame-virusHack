@@ -30,5 +30,6 @@ tryAgainButton.addEventListener("click", () => {
 
 levelupButton.addEventListener("click", () => {
   game.start();
-  game.levelUp();
+  game.health += 150;
+  console.log(game.health);
 });

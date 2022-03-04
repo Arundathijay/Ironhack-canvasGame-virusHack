@@ -1,13 +1,20 @@
-/*Game {
-  constructor(screens, health) {
-    this.screens = screens;
-    this.screenDisplay("playing");
+class Level {
+  constructor(gameInstance) {
+    this.game = gameInstance;
     this.health = 150;
-    this.gameLoop();
+    this.speed = speed;
   }
+  levelUp() {}
 
-  levelUp() {
-    const healthInc = (this.health += 150);
-    console.log(healthInc);
+  draw() {
+    this.landmarks.push(
+      new Landmark(this, 200, 80, 15, 50),
+      new Landmark(this, 400, 90, 15, 50),
+      new Landmark(this, 500, 100, 15, 50),
+      new Landmark(this, 350, 550, 15, 50),
+      new Landmark(this, 450, 650, 15, 50),
+      new Landmark(this, 550, 700, 15, 50),
+      new Landmark(this, 750, 650, 15, 50)
+    );
   }
-}*/
+}

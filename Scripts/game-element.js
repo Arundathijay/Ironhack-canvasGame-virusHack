@@ -20,15 +20,15 @@ class GameElement {
     this.accelerationX = accelerationX || 0;
     this.accelerationY = accelerationY || 0;
   }
-
-  checkIntersection(item) {
+  /*checkIntersection(item) {
     return (
       item.x + item.width > this.x &&
       item.x < this.x + this.width &&
       item.y + item.height > this.y &&
       item.y < this.y + this.height
     );
-  }
+  }*/
+
   runLogic() {}
   draw() {}
 }

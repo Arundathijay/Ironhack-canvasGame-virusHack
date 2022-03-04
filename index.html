@@ -1,37 +1,87 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title></title>
-    <link href="style.css" rel="stylesheet" type="text/css" />
-  </head>
-  <body>
-    <div class="screen" id="start-screen">
-      <h1>Virus Hack</h1>
-      <button>kill the viruses</button>
-      <br />
-      <h3>Move up/ Down / left / Right</h3>
-    </div>
-    <div class="screen" id="playing-screen" style="display: none">
-      <canvas width="800" height="700"></canvas>
-    </div>
-    <div class="screen" id="game-over-screen" style="display: none">
-      <h2>GAME OVER</h2>
-      <button id="game-over">Challenge again</button>
-    </div>
-    <div class="screen" id="level-up-screen" style="display: none">
-      <h2>Level up</h2>
-      <button id="level-up">Next level</button>
-    </div>
-    <script src="scripts/game-element.js"></script>
-    <script src="scripts/landmarks.js"></script>
-    <script src="scripts/levels.js"></script>
-    <script src="scripts/spell.js"></script>
-    <script src="scripts/obstacle.js"></script>
-    <script src="scripts/enemy.js"></script>
-    <script src="scripts/player.js"></script>
-    <script src="scripts/game.js"></script>
-    <script src="scripts/script.js"></script>
-  </body>
+<html lang="en">
+  <html>
+    <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width" />
+      <title>Coronareezy</title>
+      <link
+        href="styles.css/bootstrap.min.css.map"
+        rel="stylesheet"
+        type="text/css"
+      />
+      <link
+        href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
+        rel="stylesheet"
+      />
+      <link
+        rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      />
+      <link rel="stylesheet" href="./styles.css/style.css" />
+    </head>
+    <body>
+      <div class="container">
+        <div class="row flex-column text-center">
+          <div class="col">
+            <div class="screen" id="start-screen">
+              <h1 class="main">Coronareezy</h1>
+              <hr />
+              <p>
+                things are getting out of hand in Jupiterlandia with the Aliens from
+                'coronareezy'.
+              <p>only one hero of our land is ready to fight</p>
+
+              <button type="button" id="play-btn" class="btn btn-dark ">!!save Jupiterlandia!!</button>
+              <p>be careful with the traps!!</p>
+<hr>
+<div class="container  control-button">
+  <div class="row flex-column">
+      <div class="col">
+          <div>Controls:</div>
+          <button type="button" id="up-btn" class="btn btn-dark">Up</button>
+      </div>
+
+      <div class="col  control-button" role="group">
+          <button type="button" id="left-btn" class="btn btn-dark ">Left</button>
+          <button type="button" id="down-btn" class="btn btn-dark ">Down</button>
+          <button type="button" id="right-btn" class="btn btn-dark ">Right</button>
+      </div>
+                    
+                    <div class="row flex-column">
+                      <div class="col">
+                       <div class="control"> shoot:</div>
+                        <button type="button" id="shoot-btn" class="btn btn-dark">Space</button>
+
+                      </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="screen" id="playing-screen" style="display: none">
+        <canvas id="canvasId" width="800" height="800"></canvas>
+      </div>
+      <div class="screen" id="game-over-screen" style="display: none">
+        <h2>you failed Jupiterlandia! <br> </h2>
+        <button type="button" id=game-over class="btn btn-dark "> Get the vaccine and Challenge again</button>
+      </div>
+
+      <div class="screen" id="level-up-screen" style="display: none">
+        <h2>You are our hero  </h2>
+        <p>you have killed most aliens, but there are more entering to our planet to destroy all of us! </p>
+        <button type="button" id=level-up class="btn btn-dark" > Please save us </button>
+      </div>
+
+      <script src="scripts/game-element.js"></script>
+      <script src="scripts/landmarks.js"></script>
+      <script src="scripts/levels.js"></script>
+      <script src="scripts/spell.js"></script>
+      <script src="scripts/obstacle.js"></script>
+      <script src="scripts/enemy.js"></script>
+      <script src="scripts/player.js"></script>
+      <script src="scripts/game.js"></script>
+      <script src="scripts/script.js"></script>
+    </body>
+  </html>
 </html>

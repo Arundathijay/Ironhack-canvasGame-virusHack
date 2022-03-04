@@ -1,0 +1,70 @@
+@import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: rgb(139, 205, 221);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "VT323", monospace, cursive;
+}
+canvas {
+  padding: 0;
+  margin: auto;
+  display: flex;
+  width: 800px;
+  height: 800px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.screen {
+  width: 800px;
+  height: 800px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: lighter;
+  font-weight: bolder;
+}
+div p {
+  font-size: 2em;
+}
+
+button {
+  font: inherit;
+  font-size: 1em;
+  background-color: rgb(59, 59, 66);
+  color: white;
+  border: 0;
+  padding: 1em;
+}
+
+.main {
+  font-size: 3.5em;
+}
+
+#start-screen {
+  background-size: cover;
+  background-position: center center;
+}
+#game-over-screen {
+  background-size: cover;
+  background-position: center center;
+}
+#arrows {
+  align-items: center;
+}
+#level-up-screen {
+  background-size: cover;
+  background-position: center center;
+}
