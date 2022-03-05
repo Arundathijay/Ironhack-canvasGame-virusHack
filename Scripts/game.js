@@ -2,11 +2,18 @@ let imagespassed = 0;
 const speed = 4;
 
 const backgroundImage = new Image();
-backgroundImage.src =
-  "/Images/_city_of_the_amethyst_nights__by_era_7_dbqldfw.jpg";
+backgroundImage.src = "/Images/Flat Nature Art.png";
+
+const startbackground = new Image();
+startbackground.src = "/Images/thomas-dubois-storyof-a-city-06-city-web.jpg";
+
+const healthImg = new Image();
+healthImg.src = "/Images/Mask Button.png";
 
 const hitSound = new Audio("/sound/mixkit-quick-jump-arcade-game-239.wav");
-const gameIntro = new Audio("/sound/414046__tyops__fantasy-gaming-intro.wav");
+
+// const gameIntro = new Audio("/sound/414046__tyops__fantasy-gaming-intro.wav");
+
 const shootSound = new Audio(
   "/sound/466831-breviceps-laser-shots_7osXelHx.wav"
 );
@@ -20,23 +27,27 @@ class Game {
     this.enableControls();
     this.keysPressed = [];
     this.levelPoint = 150;
-    gameIntro.play();
+    // gameIntro.play();
   }
 
   start() {
-    this.running = true;
-    this.player = new Player(this);
     this.health = 100;
     this.lives = 3;
+    this.continue();
+  }
+
+  continue() {
+    this.running = true;
+    this.player = new Player(this);
     this.landmarks = [];
     this.lastTime = 0;
     this.enemies = [];
     this.obstacles = [];
     this.spells = [];
-    gameIntro.pause();
+    // gameIntro.pause();
+    // this.health += 50;
     this.addLandmarks();
     this.screenDisplay("playing");
-
     this.gameLoop();
   }
 
@@ -45,7 +56,7 @@ class Game {
       this.runLogic(timeStamp);
       this.draw();
       if (this.running) {
-        this.gameLoop(0);
+        this.gameLoop();
       }
     });
   }
@@ -64,17 +75,14 @@ class Game {
 
   lose() {
     this.running = false;
-    gameIntro.play();
+    // gameIntro.play();
     this.screenDisplay("end");
   }
 
   levelUp() {
     this.running = false;
     this.screenDisplay("levelUP");
-    if (this.screenDisplay === "levelUp") {
-      this.levelPoint += 50;
-    }
-    console.log("levelUp");
+    this.levelPoint += 100;
   }
 
   generateObstacle() {
@@ -86,7 +94,7 @@ class Game {
   }
 
   generateEnemy(deltaTime) {
-    if (!this.lastTime || deltaTime - this.lastTime >= 2 * 1000) {
+    if (!this.lastTime || deltaTime - this.lastTime >= 1.5 * 1000) {
       this.lastTime = deltaTime;
       const enemyX = this.canvas.height;
       const enemyY = (Math.random() * this.canvas.width) / 2 - 40;
@@ -115,14 +123,14 @@ class Game {
       new Landmark(this, 500, 100, 15, 50),
       new Landmark(this, 350, 550, 15, 50),
       new Landmark(this, 450, 650, 15, 50),
-      new Landmark(this, 550, 700, 15, 50)
+      new Landmark(this, 650, 650, 15, 50)
     );
   }
 
   runLogic(timeStamp) {
     //background animation
     imagespassed -= speed;
-    if (imagespassed < -2000) {
+    if (imagespassed < -2048) {
     }
     if (backgroundImage.width) {
       imagespassed = imagespassed % backgroundImage.width;
@@ -137,12 +145,7 @@ class Game {
       this.lose();
     } else if (this.health >= this.levelPoint) {
       this.levelUp();
-      if (this.levelUp) {
-        this.levelPoint += 100;
-      }
-      console.log(this.levelPoint);
     }
-
     this.generateEnemy(timeStamp);
 
     for (const enemy of this.enemies) {
@@ -222,8 +225,10 @@ class Game {
   //display scores
 
   drawHealth() {
-    this.context.font = "24px Roboto";
+    this.context.font = "24px VT323";
+    this.context.drawImage(healthImg, this.x, this.y, 10, 680);
     this.context.fillText(`Antibodies ${this.health}`, 20, 680);
+    this.context.fillStyle = "white";
   }
   drawLife() {
     this.context.font = "24px monospace, cursive;";

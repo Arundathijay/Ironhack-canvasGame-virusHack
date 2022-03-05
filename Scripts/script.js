@@ -6,9 +6,9 @@ const endScreenElement = document.getElementById("game-over-screen");
 const levelScreenElement = document.getElementById("level-up-screen");
 
 //refer to buttons
-const startButton = startScreenElement.querySelector("button");
-const tryAgainButton = endScreenElement.querySelector("button");
-const levelupButton = levelScreenElement.querySelector("button");
+const startButton = document.getElementById("play-btn");
+const tryAgainButton = document.getElementById("game-over");
+const levelupButton = document.getElementById("level-up");
 
 //different screens
 const screenElements = {
@@ -29,7 +29,6 @@ tryAgainButton.addEventListener("click", () => {
 });
 
 levelupButton.addEventListener("click", () => {
-  game.start();
-  game.health += 150;
+  game.continue();
   console.log(game.health);
 });
