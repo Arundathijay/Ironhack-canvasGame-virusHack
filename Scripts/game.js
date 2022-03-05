@@ -12,7 +12,11 @@ healthImg.src = "/Images/Mask Button.png";
 
 const hitSound = new Audio("/sound/mixkit-quick-jump-arcade-game-239.wav");
 
-// const gameIntro = new Audio("/sound/414046__tyops__fantasy-gaming-intro.wav");
+const loseSound = new Audio(
+  "/sound/zapsplat_multimedia_game_sound_fun_arcade_organ_short_negative_fail_lose_001_54274.mp3"
+);
+
+const endPlay = new Audio("/sound/414046__tyops__fantasy-gaming-intro.wav");
 
 const shootSound = new Audio(
   "/sound/466831-breviceps-laser-shots_7osXelHx.wav"
@@ -27,15 +31,15 @@ class Game {
     this.enableControls();
     this.keysPressed = [];
     this.levelPoint = 150;
-    // gameIntro.play();
   }
 
   start() {
     this.health = 100;
     this.lives = 3;
     this.continue();
+    endPlay.pause();
   }
-
+  //continues different levels of the game
   continue() {
     this.running = true;
     this.player = new Player(this);
@@ -44,11 +48,11 @@ class Game {
     this.enemies = [];
     this.obstacles = [];
     this.spells = [];
-    // gameIntro.pause();
     // this.health += 50;
     this.addLandmarks();
     this.screenDisplay("playing");
     this.gameLoop();
+    endPlay.pause();
   }
 
   gameLoop() {
@@ -75,12 +79,13 @@ class Game {
 
   lose() {
     this.running = false;
-    // gameIntro.play();
+    loseSound.play();
     this.screenDisplay("end");
   }
 
   levelUp() {
     this.running = false;
+    endPlay.play();
     this.screenDisplay("levelUP");
     this.levelPoint += 100;
   }
@@ -130,7 +135,7 @@ class Game {
   runLogic(timeStamp) {
     //background animation
     imagespassed -= speed;
-    if (imagespassed < -2048) {
+    if (imagespassed < -1280) {
     }
     if (backgroundImage.width) {
       imagespassed = imagespassed % backgroundImage.width;
@@ -228,7 +233,7 @@ class Game {
     this.context.font = "24px VT323";
     this.context.drawImage(healthImg, this.x, this.y, 10, 680);
     this.context.fillText(`Antibodies ${this.health}`, 20, 680);
-    this.context.fillStyle = "white";
+    this.context.fillStyle = "dark brown";
   }
   drawLife() {
     this.context.font = "24px monospace, cursive;";
